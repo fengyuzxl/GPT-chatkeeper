@@ -14,7 +14,7 @@ GitHub：<https://github.com/fengyuzxl/GPT-chatkeeper>
 
 *A lightweight Chrome extension for bulk-deleting/archiving ChatGPT conversations, organizing them into recursive local folders, searching chat text, keeping local delete snapshots, and managing/optimizing prompts with an optional GLM-4-Flash API key. Data stays in your browser.*
 
-> **ChatKeeper（原名 GPT Master）** 是独立实现，与 OpenAI 官方、Chrome 应用商店中的 GPT Master 扩展均无任何关联。请仅用于整理自己的账号对话。
+> **ChatKeeper** 是独立实现，与 OpenAI 官方无任何关联。请仅用于整理自己的账号对话。
 
 ![主面板](tools/preview-panel.png)
 
