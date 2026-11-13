@@ -8,7 +8,7 @@
   <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-green" />
 </p>
 
-GitHub：<https://github.com/fengyuzxl/chatkeeper>
+GitHub：<https://github.com/fengyuzxl/GPT-chatkeeper>
 
 一个轻量级 Chrome 扩展（Manifest V3），为 `chatgpt.com` 增加对话管理与提示词效率能力。可以一次删除几十上百条对话，像整理文件一样给对话分类，在正文里搜索，在删除前留下本地台账，并用提示词模板 / GLM-4-Flash 一键优化提示词。所有整理数据只保存在本机。
 
@@ -145,8 +145,8 @@ GitHub：<https://github.com/fengyuzxl/chatkeeper>
 先从 GitHub 获取代码（或直接下载仓库 zip 后解压）：
 
 ```bash
-git clone https://github.com/fengyuzxl/chatkeeper.git
-cd chatkeeper
+git clone https://github.com/fengyuzxl/GPT-chatkeeper.git
+cd GPT-chatkeeper
 ```
 
 然后通过「加载已解压的扩展程序」安装：
@@ -154,7 +154,7 @@ cd chatkeeper
 1. 打开 `chrome://extensions`（Edge 为 `edge://extensions`）
 2. 打开右上角的**开发者模式**
 3. 点击**加载已解压的扩展程序**
-4. 选择**包含 `manifest.json` 的本项目目录**（例如克隆后的 `chatkeeper` 目录）
+4. 选择**包含 `manifest.json` 的本项目目录**（例如克隆后的 `GPT-chatkeeper` 目录）
 5. 打开并刷新 <https://chatgpt.com/>
 6. 点击页面右下角的绿色悬浮按钮，或按 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>
 
@@ -561,7 +561,7 @@ python tools/make_icons.py
 ## 项目结构
 
 ```text
-chatkeeper/
+GPT-chatkeeper/
 ├─ manifest.json                 MV3 清单（version 2.2.0）
 ├─ _locales/                     en / zh_CN 清单文案
 ├─ icons/                        16 / 32 / 48 / 128 图标
