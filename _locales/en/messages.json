@@ -1,0 +1,18 @@
+{
+  "appName": {
+    "message": "ChatKeeper — Bulk Delete, Folders & Prompts",
+    "description": "Extension name"
+  },
+  "appDesc": {
+    "message": "Bulk delete/archive ChatGPT conversations, organize recursive local folders, search chat text, keep delete snapshots, and optimize prompts with an optional GLM-4-Flash API key — including a one-click button by the composer.",
+    "description": "Extension description"
+  },
+  "actionTitle": {
+    "message": "ChatKeeper",
+    "description": "Toolbar button title"
+  },
+  "commandToggle": {
+    "message": "Open/close the ChatKeeper panel",
+    "description": "Keyboard shortcut description"
+  }
+}

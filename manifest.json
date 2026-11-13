@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "version": "2.2.0",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://open.bigmodel.cn/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "action": {
+    "default_title": "__MSG_actionTitle__",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "src/shared/i18n.js",
+        "src/content/api.js",
+        "src/content/store.js",
+        "src/content/snapshots.js",
+        "src/content/search.js",
+        "src/content/ai.js",
+        "src/content/composer.js",
+        "src/content/styles.js",
+        "src/content/panel.js",
+        "src/content/prompts.js",
+        "src/content/quick-optimize.js",
+        "src/content/native.js",
+        "src/content/boot.js"
+      ],
+      "css": [
+        "src/content/native.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-panel": {
+      "suggested_key": {
+        "default": "Alt+Shift+M",
+        "mac": "Alt+Shift+M"
+      },
+      "description": "__MSG_commandToggle__"
+    }
+  }
+}

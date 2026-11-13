@@ -1,0 +1,149 @@
+/* ChatKeeper - 注入到 ChatGPT 原生的少量样式
+ * 只作用于带 data-gptm-* 属性的元素，未开启原生增强时完全惰性。
+ */
+
+[data-gptm-item] {
+  position: relative !important;
+}
+
+/* 文件夹色条：画在整行的最左侧，不覆盖文字 */
+[data-gptm-item][data-gptm-folder-color]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 62%;
+  border-radius: 2px;
+  background: var(--gptm-native-color);
+  pointer-events: none;
+}
+
+/* 选中态 */
+[data-gptm-item][data-gptm-selected="true"] {
+  background-color: rgba(14, 159, 116, 0.10) !important;
+  border-radius: 8px;
+}
+
+/* 悬浮复选框 */
+.gptm-native-check {
+  position: absolute !important;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  border: 1.5px solid #9aa0a6;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.12s ease, background 0.12s ease;
+  box-sizing: border-box;
+}
+
+[data-gptm-item]:hover .gptm-native-check,
+.gptm-native-check[aria-checked="true"] {
+  opacity: 1;
+}
+
+.gptm-native-check[aria-checked="true"] {
+  background: #0e9f74;
+  border-color: #0e9f74;
+}
+
+.gptm-native-check[aria-checked="true"]::after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.gptm-native-check:focus-visible {
+  outline: 2px solid #0e9f74;
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .gptm-native-check { opacity: 0.7; }
+}
+
+html.dark .gptm-native-check {
+  background: #1b1c1e;
+  border-color: #5f6368;
+}
+
+html.dark .gptm-native-check[aria-checked="true"] {
+  background: #17b890;
+  border-color: #17b890;
+}
+
+html.dark [data-gptm-item][data-gptm-selected="true"] {
+  background-color: rgba(23, 184, 144, 0.14) !important;
+}
+
+/* 输入框旁的一键优化按钮 */
+.gptm-quick-optimize {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 6px;
+  padding: 0;
+  flex: none;
+  border: 1px solid rgba(14, 159, 116, 0.35);
+  border-radius: 8px;
+  background: rgba(14, 159, 116, 0.08);
+  color: #0e9f74;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+.gptm-quick-optimize:hover { background: rgba(14, 159, 116, 0.18); }
+.gptm-quick-optimize:focus-visible { outline: 2px solid #0e9f74; outline-offset: 1px; }
+.gptm-quick-optimize svg { width: 16px; height: 16px; display: block; }
+.gptm-quick-optimize[data-busy="true"] { opacity: 0.7; cursor: progress; }
+.gptm-quick-optimize[data-busy="true"] svg { animation: gptm-quick-spin 1s linear infinite; }
+
+.gptm-quick-optimize.gptm-quick-fixed {
+  position: fixed !important;
+  right: 24px;
+  bottom: 120px;
+  z-index: 2147482000;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border-color: transparent;
+  background: #0e9f74;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+.gptm-quick-optimize.gptm-quick-fixed:hover { background: #0b8a63; }
+
+html.dark .gptm-quick-optimize {
+  color: #17b890;
+  border-color: rgba(23, 184, 144, 0.4);
+  background: rgba(23, 184, 144, 0.12);
+}
+html.dark .gptm-quick-optimize:hover { background: rgba(23, 184, 144, 0.2); }
+html.dark .gptm-quick-optimize.gptm-quick-fixed {
+  background: #17b890;
+  color: #062b22;
+  border-color: transparent;
+}
+
+@keyframes gptm-quick-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 760px) {
+  .gptm-quick-optimize.gptm-quick-fixed { right: 16px; bottom: 104px; }
+}

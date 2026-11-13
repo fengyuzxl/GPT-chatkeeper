@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ChatKeeper</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbfc;
+    --card: #ffffff;
+    --fg: #1f2328;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #0e9f74;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131416;
+      --card: #1b1c1e;
+      --fg: #ececf1;
+      --muted: #9aa0a6;
+      --border: #33363b;
+      --accent: #17b890;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 20px 80px;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .head img { border-radius: 18px; }
+  h1 { font-size: 26px; margin: 0; letter-spacing: -.01em; }
+  .lead { color: var(--muted); margin: 0 0 32px; }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  h2 { font-size: 16px; margin: 0 0 10px; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin: 5px 0; }
+  code, kbd {
+    font: 13px/1.4 ui-monospace, Consolas, monospace;
+    background: color-mix(in srgb, var(--fg) 7%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 1px 5px;
+  }
+  .warn {
+    border-color: color-mix(in srgb, #e5484d 40%, var(--border));
+    background: color-mix(in srgb, #e5484d 6%, var(--card));
+  }
+  .warn h2 { color: #d1353a; }
+  a { color: var(--accent); }
+  .cta {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 9px 18px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <img src="../../icons/icon128.png" alt="" width="64" height="64" />
+    <div>
+      <h1>ChatKeeper</h1>
+      <p class="lead" data-i18n="批量删除 · 文件夹 · 搜索 · 提示词">批量删除 · 文件夹 · 搜索 · 提示词</p>
+    </div>
+  </div>
+
+  <section>
+    <h2 data-i18n="如何打开面板">如何打开面板</h2>
+    <ol>
+      <li><span data-i18n="先登录">先登录</span> <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">chatgpt.com</a><span data-i18n="。">。</span></li>
+      <li data-i18n="点击页面右下角的绿色悬浮按钮，或按 Alt + Shift + M。">点击页面右下角的绿色悬浮按钮，或按 Alt + Shift + M。</li>
+      <li data-i18n="也可以在浏览器工具栏点击 ChatKeeper 图标，再点「打开面板」。">也可以在浏览器工具栏点击 ChatKeeper 图标，再点「打开面板」。</li>
+      <li data-i18n="安装或更新扩展后，需要刷新 ChatGPT 页面。">安装或更新扩展后，需要刷新 ChatGPT 页面。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 data-i18n="批量删除">批量删除</h2>
+    <ol>
+      <li data-i18n="打开面板，扩展会用当前登录会话拉取全部对话。">打开面板，扩展会用当前登录会话拉取全部对话。</li>
+      <li data-i18n="用搜索、时间筛选或左侧文件夹定位。">用搜索、时间筛选或左侧文件夹定位。</li>
+      <li data-i18n="勾选对话，或用表头「全选」。">勾选对话，或用表头「全选」。</li>
+      <li data-i18n="点「删除」→ 确认 → 等待进度完成。">点「删除」→ 确认 → 等待进度完成。</li>
+    </ol>
+    <p class="muted" data-i18n="删除调用 ChatGPT 网页端同一接口，效果等同于在侧边栏逐个删除。">删除调用 ChatGPT 网页端同一接口，效果等同于在侧边栏逐个删除。</p>
+  </section>
+
+  <section>
+    <h2 data-i18n="文件夹与子文件夹">文件夹与子文件夹</h2>
+    <ul>
+      <li data-i18n="新建文件夹后，可在文件夹菜单里继续新建子文件夹，或用拖拽把文件夹放进另一个文件夹。">新建文件夹后，可在文件夹菜单里继续新建子文件夹，或用拖拽把文件夹放进另一个文件夹。</li>
+      <li data-i18n="勾选对话后点「移动到文件夹」，或直接把对话行拖到文件夹上。">勾选对话后点「移动到文件夹」，或直接把对话行拖到文件夹上。</li>
+      <li data-i18n="文件夹可上移或下移排序；删除父文件夹时，子文件夹会提升到上一级，对话回到「未分类」。">文件夹可上移或下移排序；删除父文件夹时，子文件夹会提升到上一级，对话回到「未分类」。</li>
+      <li data-i18n="父文件夹的计数包含所有子文件夹，点击父文件夹会显示其下全部对话。">父文件夹的计数包含所有子文件夹，点击父文件夹会显示其下全部对话。</li>
+      <li data-i18n="文件夹与归类只保存在浏览器本地，不会上传到任何服务器。">文件夹与归类只保存在浏览器本地，不会上传到任何服务器。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="智能选择与删除快照">智能选择与删除快照</h2>
+    <ul>
+      <li data-i18n="按「超过 N 天未更新」「标题包含或不包含」等条件一次选中对话，支持追加或替换当前选择。">按「超过 N 天未更新」「标题包含或不包含」等条件一次选中对话，支持追加或替换当前选择。</li>
+      <li data-i18n="删除前会在本地保存快照，记录标题、时间与所属文件夹。">删除前会在本地保存快照，记录标题、时间与所属文件夹。</li>
+      <li data-i18n="快照可在「删除快照」中查看或导出 JSON；它只用于事后核对，无法恢复 ChatGPT 对话。">快照可在「删除快照」中查看或导出 JSON；它只用于事后核对，无法恢复 ChatGPT 对话。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="正文搜索">正文搜索</h2>
+    <ul>
+      <li data-i18n="在搜索框输入关键词，点「正文搜索」，扩展会逐条读取对话内容。">在搜索框输入关键词，点「正文搜索」，扩展会逐条读取对话内容。</li>
+      <li data-i18n="搜索有进度、可随时停止；结果会显示命中片段并高亮。">搜索有进度、可随时停止；结果会显示命中片段并高亮。</li>
+      <li data-i18n="ChatGPT 没有可用的服务端全文搜索，因此这是个慢功能，且会消耗网络请求。建议先用文件夹或时间缩小范围。">ChatGPT 没有可用的服务端全文搜索，因此这是个慢功能，且会消耗网络请求。建议先用文件夹或时间缩小范围。</li>
+      <li data-i18n="正文索引只存在内存中，刷新页面后需要重新读取。">正文索引只存在内存中，刷新页面后需要重新读取。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="提示词库与优化">提示词库与优化</h2>
+    <ul>
+      <li data-i18n="在左侧打开「提示词库」，可以创建、编辑、搜索提示词模板；用 {{变量}} 占位，使用时一键填入输入框。">在左侧打开「提示词库」，可以创建、编辑、搜索提示词模板；用 {{变量}} 占位，使用时一键填入输入框。</li>
+      <li data-i18n="对模板或当前输入框点「优化」，可用 GLM-4-Flash 改写提示词；结果不会自动发送。">对模板或当前输入框点「优化」，可用 GLM-4-Flash 改写提示词；结果不会自动发送。</li>
+      <li data-i18n="输入框旁还有一个一键优化按钮：点击后直接替换提示词，并可在提示条中撤销。">输入框旁还有一个一键优化按钮：点击后直接替换提示词，并可在提示条中撤销。</li>
+      <li data-i18n="在设置 →「AI 提示词优化」中填入 open.bigmodel.cn 的免费 API Key；未配置时使用本地结构化优化。">在设置 →「AI 提示词优化」中填入 open.bigmodel.cn 的免费 API Key；未配置时使用本地结构化优化。</li>
+      <li data-i18n="可在设置里选择优化风格，或关闭输入框旁的优化按钮。">可在设置里选择优化风格，或关闭输入框旁的优化按钮。</li>
+      <li data-i18n="API Key 只保存在本浏览器，不写入导出；优化时只会把当前提示词发送到智谱，不发送对话历史。">API Key 只保存在本浏览器，不写入导出；优化时只会把当前提示词发送到智谱，不发送对话历史。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="原生侧边栏增强">原生侧边栏增强</h2>
+    <ul>
+      <li data-i18n="在 ChatGPT 自带的对话列表左侧显示文件夹色条；鼠标悬停会出现复选框。">在 ChatGPT 自带的对话列表左侧显示文件夹色条；鼠标悬停会出现复选框。</li>
+      <li data-i18n="底部的批量操作栏可移动、归档、删除；右键对话可打开快捷菜单。">底部的批量操作栏可移动、归档、删除；右键对话可打开快捷菜单。</li>
+      <li data-i18n="如果 ChatGPT 改版导致显示异常，可在设置中关闭原生增强，面板功能不受影响。">如果 ChatGPT 改版导致显示异常，可在设置中关闭原生增强，面板功能不受影响。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-i18n="界面语言与数据">界面语言与数据</h2>
+    <ul>
+      <li data-i18n="界面支持中文与英文，默认跟随浏览器语言，可在设置中切换。">界面支持中文与英文，默认跟随浏览器语言，可在设置中切换。</li>
+      <li data-i18n="文件夹、归类、设置保存在浏览器本地；可导出 JSON 备份，也可导入合并或替换。">文件夹、归类、设置保存在浏览器本地；可导出 JSON 备份，也可导入合并或替换。</li>
+      <li data-i18n="清理列表缓存不会影响文件夹与归类数据。">清理列表缓存不会影响文件夹与归类数据。</li>
+    </ul>
+  </section>
+
+  <section class="warn">
+    <h2 data-i18n="使用前请注意">使用前请注意</h2>
+    <ul>
+      <li data-i18n="批量删除不可撤销，请先小批量验证。">批量删除不可撤销，请先小批量验证。</li>
+      <li data-i18n="这是第三方扩展，与 OpenAI 官方无关。">这是第三方扩展，与 OpenAI 官方无关。</li>
+      <li data-i18n="请只操作自己的账号。">请只操作自己的账号。</li>
+      <li data-i18n="扩展仅申请 storage、ChatGPT 站点访问权限，以及可选的 open.bigmodel.cn 权限，不加载远程代码。">扩展仅申请 storage、ChatGPT 站点访问权限，以及可选的 open.bigmodel.cn 权限，不加载远程代码。</li>
+      <li data-i18n="AI 优化需要你自己的 API Key，并会把当前提示词发送到智谱；不点击优化则不会联网。">AI 优化需要你自己的 API Key，并会把当前提示词发送到智谱；不点击优化则不会联网。</li>
+      <li data-i18n="ChatGPT 接口可能随时调整；如果失败，请查看设置中的接口诊断与失败提示。">ChatGPT 接口可能随时调整；如果失败，请查看设置中的接口诊断与失败提示。</li>
+    </ul>
+    <a class="cta" href="https://chatgpt.com/" target="_blank" rel="noreferrer" data-i18n="前往 ChatGPT">前往 ChatGPT</a>
+  </section>
+</main>
+<script src="../shared/i18n.js"></script>
+</body>
+</html>

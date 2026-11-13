@@ -1,0 +1,12 @@
+# Local / generated files
+README.pdf
+*.pem
+*.crx
+tools/tmp-*.png
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

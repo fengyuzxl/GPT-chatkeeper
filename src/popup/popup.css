@@ -1,0 +1,115 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #0e9f74;
+  --accent-fg: #ffffff;
+  --ghost-hover: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1c1e;
+    --fg: #ececf1;
+    --muted: #9aa0a6;
+    --border: #34363a;
+    --accent: #17b890;
+    --accent-fg: #062b22;
+    --ghost-hover: #26282b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 296px;
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+header img { border-radius: 9px; }
+
+h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+
+.sub {
+  margin: 2px 0 0;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.status {
+  margin: 0 0 12px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 12px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--fg) 3%, transparent);
+}
+
+.status.ok { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
+.status.warn { color: #b45309; border-color: #f0c36d; }
+
+button {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  margin-bottom: 8px;
+}
+
+.primary:not(:disabled):hover { filter: brightness(1.06); }
+
+.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--fg);
+}
+
+.ghost:hover { background: var(--ghost-hover); }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid var(--border);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+kbd {
+  font: 11px/1 ui-monospace, Consolas, monospace;
+  padding: 3px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+}

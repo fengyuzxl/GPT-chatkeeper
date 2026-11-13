@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChatKeeper</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <img src="../../icons/icon48.png" alt="" width="36" height="36" />
+    <div>
+      <h1>ChatKeeper</h1>
+      <p class="sub" data-i18n="批量删除 · 文件夹 · 提示词">批量删除 · 文件夹 · 提示词</p>
+    </div>
+  </header>
+
+  <p id="status" class="status" data-i18n="正在检测当前页面…">正在检测当前页面…</p>
+
+  <button id="open" class="primary" disabled data-i18n="在 ChatGPT 中打开面板">在 ChatGPT 中打开面板</button>
+  <button id="help" class="ghost" data-i18n="使用说明">使用说明</button>
+
+  <footer>
+    <span data-i18n="快捷键">快捷键</span>
+    <kbd id="shortcut">Alt+Shift+M</kbd>
+  </footer>
+
+  <script src="../shared/i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
